@@ -1,3 +1,7 @@
+"TSkeleton
+
+autocmd BufNewFile *.h  TSkeletonSetup cpp.h
+
 "NERDcomments
 let NERDComInInsertMap="<F13>"
 
