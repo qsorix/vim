@@ -1,104 +1,166 @@
-"TSkeleton
+set nocompatible
+syntax on                 " syntax highlighing
+filetype on               " try to detect filetypes
+filetype plugin indent on " enable loading indent file for filetype
 
-autocmd BufNewFile *.h  TSkeletonSetup cpp.h
+" In GVIM
+if has("gui_running")
+    set guifont=Liberation\ Mono\ 12 " use this font
+    "set lines=35                     "
+    "set columns=130                  "
+    set background=dark              " adapt colors for background
+    colorscheme lucius
+    set guioptions-=T          " don't show icons in gui
+else
+    set background=dark              " adapt colors for dark background
+    colorscheme lucius
+    set t_Co=256
+endif
 
-"NERDcomments
-let NERDComInInsertMap="<F13>"
-
-filetype plugin on
-filetype indent on
-
-set ruler
-set number
+" ==================================================
+" Basic Settings
+" ==================================================
+let mapleader=","          " change the leader to be a comma vs slash
+set textwidth=80           " Try this out to see how textwidth helps
+set cmdheight=3            " Make command line bigger
+set laststatus=2           " always show status line
+set scrolloff=4            " keep 3 lines when scrolling
+set cursorline             " have a line indicate the cursor location
+set autoindent             " always set autoindenting on
+set noshowcmd              " don't display incomplete commands
+set ruler                  " show the cursor position all the time
+set nobackup               " do not keep a backup file
+set modeline               " last lines in document sets vim mode
+set modelines=3            " number lines checked for modelines
+set shortmess=atI          " Abbreviate messages
+set nostartofline          " don't jump to first character when paging
+set backspace=start,indent,eol " backspace over everything
+set matchpairs+=<:>        " show matching <> (html mainly) as well
+set showmatch
+set matchtime=3
 set mouse=a
+set nowrap
+set autowrite
 
-"setlocal spell spelllang=pl
-"set spelllang=pl,en
-
-" kolorki
-"colorscheme elflord
-"colorscheme oceanblack
-syntax on
-
-let g:load_doxygen_syntax=1
-let html_use_css = 1
-
-" encoding tekstu
+" default text encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
-" inne opcje
-set modeline
-set foldmethod=manual
-set foldcolumn=4
-set scrolloff=4
+" tags
+set tags=tags; " ';' searches for tags file in parent directories
 
+" complete in vim commands with a nice list
+set wildmenu
+set wildmode=longest,list
+set wildignore+=*.pyc
+
+" custom keys
 set pastetoggle=<F8>
 
-" zmiana pwd
-autocmd BufEnter * lcd %:p:h
+" If we're running in vimdiff then tweak out settings a bit
+if &diff
+   set nospell
+endif
 
-" edycja
-set tabstop=8
-set cino=:0l1b1g0t0(0W8
-set nowrap
-set autowrite
-set autoindent
-set nosmartindent
-set showmatch
+" ==================================================
+" spell checking
+" ==================================================
+set spell
+set spelllang=pl,en
+" shortcut to toggle spelling
+nmap <leader>s :setlocal spell! <CR>
 
-" 'szybki' esc
-" map <C-Space> <ESC>
+" setup a custom dict for spelling
+" zg = add word to dict
+" zw = mark word as not spelled correctly (remove)
+set spellfile=~/.vim/dict.add
 
-" przesuwanie wciec
+" ==================================================
+" Basic Maps
+" ==================================================
+"
+" Maps for jj to act as Esc
+inoremap ;; <esc>
+vnoremap ;; <esc>
+cnoremap ;; <c-c>
+
+" map ctrl-c to something else so I quit using it
+map <c-c> <Nop>
+imap <c-c> <Nop>
+
+" start new commands without shift
+nnoremap ; :
+
+" shift block
 vmap < <gv
 vmap > >gv
 
-" dopasowywanie nawiasow
-set mps+=<:>
-set showmatch
-set matchtime=2
+nmap <leader>nu :set number!<cr>
 
-" praca z okienkami
+" terminal
+nmap <silent> <F9> :call system("gnome-terminal&")<CR>
+
+let g:load_doxygen_syntax=1
+
+
+" ==================================================
+" Windows / Splits
+" ==================================================
+" ctrl-jklm changes to that split
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" use - and + to resize horizontal splits
+map - 3<C-W>-
+map + 3<C-W>+
+" and for vsplits with alt-< or alt->
+map <M-,> 3<C-W><
+map <M-.> 3<C-W>>
+
 set noequalalways
 set winminheight=0
 noremap <C-w><PageDown> <C-w><Down><C-w>_
 noremap <C-w><PageUp> <C-w><Up><C-w>_
 
-" przewijanie
-au BufEnter * set scroll=1
-au VimEnter * set scroll=1
 
-" wyszukiwanie
-set nohlsearch
-map <silent> <C-h> :set invhlsearch<CR>
-vmap <silent> <C-h> :<C-u>set invhlsearch<CR>gv
-imap <silent> <C-h> <C-o>:set invhlsearch<CR>
-set incsearch
+" ==================================================
+" Search
+" ==================================================
+set nohlsearch  " don't highlight searches by default
+set incsearch   " do incremental searching
 set wrapscan
+set ignorecase  " ignore case when searching
+set smartcase   " if searching and search contains upper case, make case sensitive search
 
+map  <silent> <C-h>      :set invhlsearch<CR>
+imap <silent> <C-h> <C-o>:set invhlsearch<CR>
+
+
+" ==================================================
+" Clean all end of line extra whitespace with ,S
+" Credit: voyeg3r https://github.com/mitechie/pyvim/issues/#issue/1
+" ==================================================
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+map <silent><leader>S <esc>:keepjumps call CleanExtraSpaces()<cr>
+
+
+" ==================================================
+" Skeletons
+" ==================================================
+autocmd BufNewFile *.h  TSkeletonSetup cpp.h
+
+
+" ==================================================
 " Project
+" ==================================================
 let g:proj_flags="istbcg"
 let g:proj_window_width=35
-
-" Man
-runtime! ftplugin/man.vim
-
-" indent
-au Syntax c,cpp*,php set cindent
-au Syntax java set cindent
-
-" terminal
-nmap <silent> <F9> :call system("gnome-terminal&")<CR>
-
-" moj komentarz
-au Syntax c,cpp*,php imap <C-_> <esc>:r!date "+\%d \%b \%Y, \%R"<cr>i/* QsoRiX: <end><cr>
-
-autocmd FileType python set expandtab
-autocmd FileType python set tabstop=4
-autocmd FileType python set softtabstop=4
-autocmd FileType python set shiftwidth=4
-autocmd FileType python set smarttab
-let python_highlight_space_errors = 1
-
