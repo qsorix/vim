@@ -25,7 +25,7 @@ set textwidth=80           " Try this out to see how textwidth helps
 set cmdheight=3            " Make command line bigger
 set laststatus=2           " always show status line
 set scrolloff=4            " keep 3 lines when scrolling
-set cursorline             " have a line indicate the cursor location
+set nocursorline           " have a line indicate the cursor location
 set autoindent             " always set autoindenting on
 set noshowcmd              " don't display incomplete commands
 set ruler                  " show the cursor position all the time
