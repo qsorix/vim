@@ -174,20 +174,6 @@ augroup tSkeleton
         call map(split(glob(tlib#file#Join([g:tskelDir, 'templates', '**'], 1)), '\n'), 'isdirectory(v:val) || s:DefineAutoCmd(v:val)')
         delfunction s:DefineAutoCmd
 
-        autocmd BufNewFile *.bat       TSkeletonSetup batch.bat
-        autocmd BufNewFile *.tex       TSkeletonSetup latex.tex
-        autocmd BufNewFile tc-*.rb     TSkeletonSetup tc-ruby.rb
-        autocmd BufNewFile *.rb        TSkeletonSetup ruby.rb
-        autocmd BufNewFile *.rbx       TSkeletonSetup ruby.rb
-        autocmd BufNewFile *.sh        TSkeletonSetup shell.sh
-        autocmd BufNewFile *.txt       TSkeletonSetup text.txt
-        autocmd BufNewFile *.vim       TSkeletonSetup plugin.vim
-        autocmd BufNewFile *.inc.php   TSkeletonSetup php.inc.php
-        autocmd BufNewFile *.class.php TSkeletonSetup php.class.php
-        autocmd BufNewFile *.php       TSkeletonSetup php.php
-        autocmd BufNewFile *.tpl       TSkeletonSetup smarty.tpl
-        autocmd BufNewFile *.html      TSkeletonSetup html.html
-
     endif
 
     exec 'autocmd BufNewFile,BufRead '. escape(g:tskelDir, ' ') .'* if g:tskeleton_SetFiletype | set ft=tskeleton | endif'
