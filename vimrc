@@ -30,7 +30,7 @@ set autoindent             " always set autoindenting on
 set noshowcmd              " don't display incomplete commands
 set ruler                  " show the cursor position all the time
 set nobackup               " do not keep a backup file
-set modeline               " last lines in document sets vim mode
+set modeline               " last lines in document sets Vim mode
 set modelines=3            " number lines checked for modelines
 set shortmess=atI          " Abbreviate messages
 set nostartofline          " don't jump to first character when paging
@@ -81,9 +81,9 @@ set spellfile=~/.vim/dict.add
 " ==================================================
 "
 " Maps for jj to act as Esc
-inoremap ;; <esc>
-vnoremap ;; <esc>
-cnoremap ;; <c-c>
+inoremap ,, <esc>
+vnoremap ,, <esc>
+cnoremap ,, <c-c>
 
 " map ctrl-c to something else so I quit using it
 map <c-c> <Nop>
@@ -164,3 +164,9 @@ autocmd BufNewFile *.h  TSkeletonSetup cpp.h
 " ==================================================
 let g:proj_flags="istbcg"
 let g:proj_window_width=35
+
+
+" ==================================================
+" CommandT
+" ==================================================
+let g:CommandTAcceptSelectionSplitMap = '<C-o>'

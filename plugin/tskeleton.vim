@@ -77,8 +77,8 @@ endif
 
 
 function! TSkeletonMapGoToNextTag() "{{{3
-    nnoremap <silent> <c-j> :call tskeleton#GoToNextTag()<cr>
-    vnoremap <silent> <c-j> <c-\><c-n>:call tskeleton#GoToNextTag()<cr>
+    " nnoremap <silent> <c-j> :call tskeleton#GoToNextTag()<cr>
+    " vnoremap <silent> <c-j> <c-\><c-n>:call tskeleton#GoToNextTag()<cr>
     inoremap <silent> <c-j> <c-\><c-o>:call tskeleton#GoToNextTag()<cr>
 endf
 
