@@ -41,6 +41,7 @@ set matchtime=3
 set mouse=a
 set nowrap
 set autowrite
+set diffopt+=iwhite
 
 " default text encoding
 set encoding=utf-8
@@ -51,9 +52,9 @@ set termencoding=utf-8
 set tags=tags; " ';' searches for tags file in parent directories
 
 " complete in vim commands with a nice list
-set wildmenu
 set wildmode=longest,list
 set wildignore+=*.pyc
+set wildignore+=*.o,*.a,*.so,*.d,*.obj,.git
 
 " custom keys
 set pastetoggle=<F8>
@@ -175,3 +176,27 @@ let g:proj_window_width=35
 " CommandT
 " ==================================================
 let g:CommandTAcceptSelectionSplitMap = '<C-o>'
+let g:CommandTMaxFiles=30000
+
+" ==================================================
+" Alternate
+" ==================================================
+let g:alternateExtensions_h = "C,cpp,cxx,cc,CC,c"
+let g:alternateExtensions_C = "h,H,hpp"
+
+" ==================================================
+" Tags
+" ==================================================
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_WinWidth = 50
+map <F4> :TlistToggle<cr>
+
+" ==================================================
+" Folding
+" ==================================================
+"autocmd FileType cpp set foldmethod=syntax
+"set foldtext=getline(v:foldstart)
+"set foldnestmax=4
+"set foldcolumn=5
+"set foldopen+=search
+"set foldlevel=0
