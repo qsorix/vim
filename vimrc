@@ -140,6 +140,11 @@ imap <silent> <C-h> <C-o>:set invhlsearch<CR>
 
 
 " ==================================================
+" initialize Pathogen
+" ==================================================
+call pathogen#infect()
+
+" ==================================================
 " Clean all end of line extra whitespace with ,S
 " Credit: voyeg3r https://github.com/mitechie/pyvim/issues/#issue/1
 " ==================================================
