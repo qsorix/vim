@@ -67,7 +67,7 @@ endif
 " ==================================================
 " spell checking
 " ==================================================
-set spell
+"set spell
 set spelllang=pl,en
 " shortcut to toggle spelling
 nmap <leader>s :setlocal spell! <CR>
