@@ -200,3 +200,9 @@ map <F4> :TlistToggle<cr>
 "set foldcolumn=5
 "set foldopen+=search
 "set foldlevel=0
+
+" ==================================================
+" Clang Complete
+" ==================================================
+let g:clang_snippets = 1
+"let g:clang_snippets_engine = 'ultisnips'

@@ -8,3 +8,5 @@ setlocal cino=:0l1b1g0t0(0W8
 
 let c_space_errors = 1
 
+setlocal conceallevel=2
+setlocal concealcursor=nciv
