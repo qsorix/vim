@@ -8,14 +8,21 @@ if has("gui_running")
     set guifont=Liberation\ Mono\ 12 " use this font
     "set lines=35                     "
     "set columns=130                  "
-    set background=dark              " adapt colors for background
+    set background=light              " adapt colors for background
+    let g:lucius_style="light"
     colorscheme lucius
     set guioptions-=T          " don't show icons in gui
 else
-    set background=dark              " adapt colors for dark background
+    "set background=light              " adapt colors for dark background
+    "let g:lucius_style="light"
     colorscheme lucius
     set t_Co=256
 endif
+
+" ==================================================
+" Hack: Reset background
+" ==================================================
+autocmd VimLeave * set t_Co=
 
 " ==================================================
 " Basic Settings
