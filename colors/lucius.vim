@@ -752,4 +752,3 @@ command! LuciusBlackHighContrast call SetLucius("dark", "high", "high")
             \ | colorscheme lucius
 
 " vim: tw=78
-
