@@ -10,3 +10,9 @@ let c_space_errors = 1
 
 setlocal conceallevel=2
 setlocal concealcursor=nciv
+
+setlocal expandtab
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal smarttab
