@@ -49,6 +49,7 @@ set mouse=a
 set nowrap
 set autowrite
 set diffopt+=iwhite
+set noautochdir
 
 " default text encoding
 set encoding=utf-8
@@ -70,6 +71,8 @@ set pastetoggle=<F8>
 if &diff
    set nospell
 endif
+
+autocmd FileType gitcommit setlocal spell!
 
 " ==================================================
 " spell checking
@@ -140,11 +143,11 @@ noremap <C-w><PageUp> <C-w><Up><C-w>_
 set nohlsearch  " don't highlight searches by default
 set incsearch   " do incremental searching
 set wrapscan
-set ignorecase  " ignore case when searching
-set smartcase   " if searching and search contains upper case, make case sensitive search
+"set ignorecase  " ignore case when searching
+"set smartcase   " if searching and search contains upper case, make case sensitive search
 
-map  <silent> <C-h>      :set invhlsearch<CR>
-imap <silent> <C-h> <C-o>:set invhlsearch<CR>
+map  <silent> <leader><C-i>      :set invhlsearch<CR>
+imap <silent> <leader><C-i> <C-o>:set invhlsearch<CR>
 
 
 " ==================================================
