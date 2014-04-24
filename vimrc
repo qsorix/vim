@@ -217,3 +217,9 @@ map <F4> :TlistToggle<cr>
 " ==================================================
 let g:clang_snippets = 1
 "let g:clang_snippets_engine = 'ultisnips'
+
+" ==================================================
+" Clang Format
+" ==================================================
+map <leader><C-f> :pyf /home/qsorix/bin/clang-format.py<CR>
+imap <leader><C-f> <ESC>:pyf /home/qsorix/bin/clang-format.py<CR>i
