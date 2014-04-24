@@ -13,8 +13,8 @@ if has("gui_running")
     colorscheme lucius
     set guioptions-=T          " don't show icons in gui
 else
-    "set background=light              " adapt colors for dark background
-    "let g:lucius_style="light"
+    set background=dark              " adapt colors for dark background
+    let g:lucius_style="dark"
     colorscheme lucius
     set t_Co=256
 endif
@@ -50,6 +50,7 @@ set nowrap
 set autowrite
 set diffopt+=iwhite
 set noautochdir
+set spell
 
 " default text encoding
 set encoding=utf-8
