@@ -173,6 +173,7 @@ map <silent><leader>S <esc>:keepjumps call CleanExtraSpaces()<cr>
 " Skeletons
 " ==================================================
 autocmd BufNewFile *.h  TSkeletonSetup cpp.h
+autocmd BufNewFile *Test.cpp  TSkeletonSetup cppTest.cpp
 
 
 " ==================================================
