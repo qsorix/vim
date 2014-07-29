@@ -5,19 +5,21 @@ filetype plugin indent on " enable loading indent file for filetype
 
 " In GVIM
 if has("gui_running")
-    set guifont=Liberation\ Mono\ 12 " use this font
+    set guifont=DejaVu\ Sans\ Mono\ Book\ 13 " use this font
     "set lines=35                     "
     "set columns=130                  "
     set background=light              " adapt colors for background
     let g:lucius_style="light"
     colorscheme lucius
-    set guioptions-=T          " don't show icons in gui
+    set guioptions-=T
+    set guioptions-=m
 else
     set background=dark              " adapt colors for dark background
-    let g:lucius_style="dark"
-    colorscheme lucius
-    set t_Co=256
+    "colorscheme lucius
+    "set t_Co=256
 endif
+
+hi Normal ctermbg=None
 
 " ==================================================
 " Hack: Reset background
