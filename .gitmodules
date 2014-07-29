@@ -10,3 +10,6 @@
 [submodule "bundle/robotframework-vim"]
 	path = bundle/robotframework-vim
 	url = git://github.com/mfukar/robotframework-vim.git
+[submodule "bundle/tcomment"]
+	path = bundle/tcomment
+	url = https://github.com/tomtom/tcomment_vim.git
