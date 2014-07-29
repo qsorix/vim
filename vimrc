@@ -224,3 +224,6 @@ let g:clang_snippets = 1
 " ==================================================
 map <leader><C-f> :pyf /home/qsorix/bin/clang-format.py<CR>
 imap <leader><C-f> <ESC>:pyf /home/qsorix/bin/clang-format.py<CR>i
+
+autocmd BufNewFile,BufRead *.cpp set syntax=cpp11
+autocmd BufNewFile,BufRead *.cc set syntax=cpp11
