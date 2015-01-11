@@ -16,3 +16,6 @@
 [submodule "bundle/vim-sleuth"]
 	path = bundle/vim-sleuth
 	url = git://github.com/tpope/vim-sleuth.git
+[submodule "bundle/pytest"]
+	path = bundle/pytest
+	url = https://github.com/alfredodeza/pytest.vim
