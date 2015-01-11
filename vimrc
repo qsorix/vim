@@ -199,10 +199,11 @@ let g:alternateExtensions_h = "C,cpp,cxx,cc,CC,c"
 let g:alternateExtensions_C = "h,H,hpp"
 
 " ==================================================
-" Tags
+" Taglist
 " ==================================================
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 50
+let Tlist_Show_One_File=1
 map <F4> :TlistToggle<cr>
 
 " ==================================================
