@@ -275,3 +275,9 @@ let g:syntastic_python_checkers = ["pyflakes"]
 
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
+
+" ==================================================
+" py.test
+" ==================================================
+map <leader><C-t> :Pytest project<CR>
+imap <leader><C-t> <ESC>:Pytest project<CR>i
