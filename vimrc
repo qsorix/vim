@@ -267,11 +267,13 @@ set statusline+=%*
 set statusline+=%h%m%r%=%-14.(%l,%c%V%)\ %P
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2 " automatically close, but not open
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_disabled_filetypes=['cpp']
 let g:syntastic_python_checkers = ["pyflakes"]
+let g:syntastic_cpp_checkers = []
 
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
