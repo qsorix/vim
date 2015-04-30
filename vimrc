@@ -283,3 +283,8 @@ let g:syntastic_warning_symbol = "⚠"
 " ==================================================
 map <leader><C-t> :Pytest project<CR>
 imap <leader><C-t> <ESC>:Pytest project<CR>i
+
+" ==================================================
+" NERDTree
+" ==================================================
+map <f12> :NERDTreeToggle<CR>
