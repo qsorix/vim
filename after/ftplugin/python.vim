@@ -5,5 +5,4 @@ setlocal shiftwidth=4
 setlocal smarttab
 let python_highlight_space_errors = 1
 setlocal number
-setlocal smartindent
 setlocal list listchars=tab:→·,trail:×,nbsp:·
