@@ -103,6 +103,10 @@ cnoremap ,, <c-c>
 map <c-c> <Nop>
 imap <c-c> <Nop>
 
+" sane copy-pasting :)
+imap <c-v> <c-o>"+P
+vmap <c-c> "+y
+
 " start new commands without shift
 nnoremap ; :
 
