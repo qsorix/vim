@@ -21,6 +21,17 @@ endif
 
 hi Normal ctermbg=None
 
+
+" Don't create .swp files everywhere
+set directory-=.
+
+" Together with vim-rooter, this works nice to find files in the current
+" directory, which I tend to keep at project's root.
+set path=**
+set suffixesadd+=.handlebars
+set suffixesadd+=.coffee
+set suffixesadd+=.py
+
 " ==================================================
 " Hack: Reset background
 " ==================================================
