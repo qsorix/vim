@@ -31,3 +31,9 @@
 [submodule "bundle/vim-rooter"]
 	path = bundle/vim-rooter
 	url = git@github.com:airblade/vim-rooter.git
+[submodule "bundle/unite.vim"]
+	path = bundle/unite.vim
+	url = git@github.com:Shougo/unite.vim.git
+[submodule "bundle/vimproc.vim"]
+	path = bundle/vimproc.vim
+	url = git@github.com:Shougo/vimproc.vim.git
