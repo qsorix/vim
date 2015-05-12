@@ -308,3 +308,8 @@ imap <leader><C-t> <ESC>:Pytest project<CR>i
 " NERDTree
 " ==================================================
 map <f12> :NERDTreeToggle<CR>
+
+" ==================================================
+" Unite
+" ==================================================
+nnoremap <C-p> :Unite -start-insert file_rec/git<cr>
