@@ -312,4 +312,14 @@ map <f12> :NERDTreeToggle<CR>
 " ==================================================
 " Unite
 " ==================================================
-nnoremap <C-p> :Unite -start-insert file_rec/git<cr>
+nnoremap <leader><C-p> :Unite -start-insert file_rec/git<cr>
+nnoremap <leader><C-g> :Unite -auto-preview grep:.<cr>
+let g:unite_source_grep_command = 'git'
+let g:unite_source_grep_default_opts = 'gr'
+let g:unite_source_grep_recursive_opt = ''
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+  imap <silent><buffer><expr> <C-CR>     unite#do_action('above')
+  map <silent><buffer><expr> <C-CR>     unite#do_action('above')
+endfunction"}}}
