@@ -40,3 +40,6 @@
 [submodule "bundle/vim-easy-align"]
 	path = bundle/vim-easy-align
 	url = git@github.com:junegunn/vim-easy-align.git
+[submodule "bundle/unite-tag"]
+	path = bundle/unite-tag
+	url = git@github.com:tsukkee/unite-tag.git

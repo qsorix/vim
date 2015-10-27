@@ -88,6 +88,8 @@ endif
 
 autocmd FileType gitcommit setlocal spell!
 
+autocmd BufNewFile,BufRead *.handlebars set filetype=handlebars
+
 " ==================================================
 " spell checking
 " ==================================================
@@ -251,6 +253,7 @@ let g:clang_snippets = 1
 autocmd BufNewFile,BufRead *.cpp set syntax=cpp11
 autocmd BufNewFile,BufRead *.cc set syntax=cpp11
 
+
 " ==================================================
 " 3-way diff helper
 " ==================================================
@@ -308,18 +311,26 @@ imap <leader><C-t> <ESC>:Pytest project<CR>i
 " NERDTree
 " ==================================================
 map <f12> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 " ==================================================
 " Unite
 " ==================================================
-nnoremap <leader><C-p> :Unite -start-insert file_rec/git<cr>
+nnoremap <C-p> :Unite -start-insert file_rec/git<cr>
 nnoremap <leader><C-g> :Unite -auto-preview grep:.<cr>
 let g:unite_source_grep_command = 'git'
 let g:unite_source_grep_default_opts = 'gr'
 let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_tag_max_fname_length = 70
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   imap <silent><buffer><expr> <C-CR>     unite#do_action('above')
   map <silent><buffer><expr> <C-CR>     unite#do_action('above')
 endfunction"}}}
+
+autocmd BufEnter *
+  \   if empty(&buftype)
+  \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+  \|      nnoremap <buffer> <C-w><C-]> :<C-u>UniteWithCursorWord -immediately -default-action=split tag<CR>
+  \|  endif
