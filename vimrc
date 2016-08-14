@@ -2,6 +2,7 @@ set nocompatible
 syntax on                 " syntax highlighing
 filetype on               " try to detect filetypes
 filetype plugin indent on " enable loading indent file for filetype
+set backupcopy=yes        " helps npm builder notice file changes
 
 " In GVIM
 if has("gui_running")
@@ -304,6 +305,7 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_disabled_filetypes=['cpp']
 let g:syntastic_python_checkers = ["flake8", "pyflakes", "python"]
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_cpp_checkers = []
 
 let g:syntastic_error_symbol = "✗"
@@ -342,3 +344,8 @@ autocmd BufEnter *
   \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
   \|      nnoremap <buffer> <C-w><C-]> :<C-u>UniteWithCursorWord -immediately -default-action=split tag<CR>
   \|  endif
+
+" ==================================================
+" JavaScript indenting
+" ==================================================
+let g:SimpleJsIndenter_BriefMode = 1
