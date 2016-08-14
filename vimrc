@@ -303,7 +303,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_disabled_filetypes=['cpp']
-let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_python_checkers = ["flake8", "pyflakes", "python"]
 let g:syntastic_cpp_checkers = []
 
 let g:syntastic_error_symbol = "✗"
