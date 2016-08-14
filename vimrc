@@ -172,8 +172,16 @@ imap <silent> <leader><C-i> <C-o>:set invhlsearch<CR>
 " ==================================================
 " JSON formatting
 " ==================================================
-map  <silent> <leader><C-f>      :!python -mjson.tool<CR>
-imap <silent> <leader><C-f> <C-o>:!python -mjson.tool<CR>
+menu FormatFile.JSON                :%!python -mjson.tool<CR>
+menu Format.JSON                :'<,'>!python -mjson.tool<CR>
+menu FormatFile.HTML                :%!tidy -i -xml -wrap 0 2>/dev/null<CR>
+menu Format.HTML                :'<,'>!tidy -i -xml -wrap 0 2>/dev/null<CR>
+
+map   <silent> <leader><C-f>?          :popup FormatFile<CR>
+vmap  <silent> <leader><C-f>?     <ESC>:popup Format<CR>
+map  <silent> <leader><C-f>j     :%!python -mjson.tool<CR>
+vmap  <silent> <leader><C-f>j    :'<,'>!python -mjson.tool<CR>
+imap <silent> <leader><C-f>j     <C-o>:'<,'>!python -mjson.tool<CR>
 
 " ==================================================
 " initialize Pathogen
