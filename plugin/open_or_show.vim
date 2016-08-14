@@ -1,5 +1,5 @@
 function! OpenOrShow(file_line)
-python << EOF
+python3 << EOF
 import vim
 
 def _goto_window_for_buffer(b):
@@ -23,7 +23,7 @@ def openFileInExistingBuffer(file_line):
         linenr = int(parts[1])
     else:
         linenr = 1
-    print "looking for", file_line
+    print("looking for", file_line)
     for w in vim.windows:
         if w.buffer.name == filename:
             _goto_window_for_bufer_name(filename)
