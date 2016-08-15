@@ -24,6 +24,10 @@ def get_xserver_selection():
 
 
 def selection_to_location(selection):
+    # strip prefixes of paths added by git diff:
+    if selection.startswith('a/') or selection.startswith('b/'):
+        selection = selection[2:]
+
     parts = selection.split(':')
     if len(parts) > 1:
         filename = parts[0]
@@ -91,6 +95,10 @@ def test_selection_to_filename():
     assert selection_to_location('foo.cc:12') == ('foo.cc', 12)
     assert selection_to_location('foo.cc:22:') == ('foo.cc', 22)
     assert selection_to_location('foo.cc:32:16') == ('foo.cc', 32)
+
+def test_selection_to_filename_on_git_diff():
+    assert selection_to_location('a/foo.cc') == ('foo.cc', None)
+    assert selection_to_location('b/foo.cc') == ('foo.cc', None)
 
 
 if __name__ == "__main__":
